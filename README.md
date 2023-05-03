@@ -55,7 +55,7 @@ This is a Python script that allows you to send automated messages to a Discord 
 ```
  
 ## Contributing
-  If you find a bug or have a feature request, please create an issue on GitHub. Pull requests are also welcome.
+  If you find a bug or have a feature request, please create an issue on GitHub. Pull requests are also welcome.  
   Do star this project.
 
 
