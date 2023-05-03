@@ -1,1 +1,1 @@
-# Discord-Auto-msg
+# Discord-Auto-Messenger
