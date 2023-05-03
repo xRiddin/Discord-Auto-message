@@ -1,5 +1,6 @@
-# Discord-Auto-Messenger
-This is a Python script that allows you to send automated messages to a Discord channel. You can configure the settings and messages to send in the code itself or by using command line arguments.
+# Discord-Auto-Messenger.  
+
+This is a Python script that allows you to send automated messages to a Discord channel. Randomly sends messages from chat dataset to appear more human-like.  
 
 
 ## Installation
@@ -9,6 +10,9 @@ This is a Python script that allows you to send automated messages to a Discord 
      ```
      git clone https://github.com/Jeevaraz/Discord-Auto-msg.git
      ```
+     
+     If you do not have Git, you may also press the Download button (GitHub) and unzip the code.  
+
 
  2. Navigate to the project directory in your terminal:  
  
@@ -22,7 +26,7 @@ This is a Python script that allows you to send automated messages to a Discord 
     pip install -r requirements.txt
     ```
  
- 4. (Optional) In messages.txt add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.  
+ 4. (Optional) In messages.txt add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.    
  
 ## Usage
  
@@ -30,7 +34,7 @@ This is a Python script that allows you to send automated messages to a Discord 
 
     python3 auto.py
     
- When running the script, you will be prompted to enter the number of seconds to wait between each message.
+ When running the script, you will be prompted to enter the number of seconds to wait between each message.  
  
  
 ## Options
