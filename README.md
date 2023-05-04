@@ -1,9 +1,8 @@
-# Discord-Auto-Messenger  
+# Discord-Auto-Messenger     
+This is a Python script that allows you to send automated messages to a Discord channel. Randomly sends messages from chat dataset to appear more human-like.      
 
-This is a Python script that allows you to send automated messages to a Discord channel. Randomly sends messages from chat dataset to appear more human-like.  
+## Installation    
 
-
-## Installation.  
   ### Local Machine or Online IDE(with cmd/shell)  
 
  1. Clone the repository or download the code as a zip file and extract it to a folder:  
