@@ -1,3 +1,4 @@
+from keep_alive import keep_alive
 import http.client
 import json
 import random
@@ -83,7 +84,7 @@ with open("messages.txt", "r") as file:
 
 # Read wait times from user 
 wait_time = int(input("Seconds between messages: "))
-
+keep_alive()
 # Loop through messages and send them
 for message in messages:
     message_data = json.dumps({"content": message})
