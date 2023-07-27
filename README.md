@@ -35,6 +35,10 @@ This is a Python script that allows you to send automated messages to a Discord 
     python auto.py
     
  When running the script, you will be prompted to enter the number of seconds to wait between each message.  
+
+## Tip
+
+To keep the bot running continuously you can use 'uptime bot' in your repl codebase.
  
  
 ## Options
