@@ -26,7 +26,15 @@ This is a Python script that allows you to send automated messages to a Discord 
     pip install -r requirements.txt
     ```
  
- 4. (Optional) In **messages.txt** add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.    
+ 4. (Optional) In **messages.txt** add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.
+
+    ### (Optional) for 100% uptime host it on uptimerobot.com
+
+1. sign up at uptimerobot.com
+
+2. Add new monitor and select Http(s)
+
+   
  
 ## Usage
  
