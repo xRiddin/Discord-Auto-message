@@ -33,13 +33,13 @@ This is a Python script that allows you to send automated messages to a Discord 
 1. sign up at uptimerobot.com
 
 2. Add new monitor and select Http(s)
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image.jpg?raw=true)
+   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image.png?raw=true)
 
 3. Run the program in replit, copy the url
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image1.jpg?raw=true)
+   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image1.png?raw=true)
 
 4. Paste the url in the uptimerobot:
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image2.jpg?raw=true)
+   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image2.png?raw=true)
 
 5. Save the changes and have fun!
 
