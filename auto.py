@@ -98,8 +98,8 @@ while (1):
         send_message(conn, text[3], message_data)
         conn.close()
 
-        print(f"Waiting {delay_between_messages} seconds...")
+        print(f"Waiting {delay_between_messages} seconds before sending next message")
         sleep(delay_between_messages)
 
-    print(f"Finished sending all messages, sleeping for {sleep_time}")
+    print(f"Finished sending all messages, sleeping for {sleep_time} seconds")
     sleep(sleep_time)
