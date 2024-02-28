@@ -1,82 +1,52 @@
-# Discord-Auto-Messenger     
-This is a Python script that allows you to send automated messages to a Discord channel. Randomly sends messages from chat dataset to appear more human-like.      
+# Discord Auto Messenger
 
-## Installation    
+This Python script enables automated messaging in a Discord channel, enhancing the experience by sending messages from a chat dataset to mimic human-like behavior.
 
-  ### Local Machine or Repl
+## Installation
 
- 1. Clone the repository or download the code as a zip file and extract it to a folder:  
- 
-     ```
-     git clone https://github.com/xRiddin/Discord-Auto-message.git
-     ```
-     
-     If you do not have Git, you may also press the Download button (GitHub) and unzip the code.  
+### Local Machine
 
+1. Clone the repository or download the code as a zip file and extract it to a folder.
+2. Navigate to the project directory in your terminal:
 
- 2. Navigate to the project directory in your terminal:  
- 
-     ```
-     cd /Downloads/Discord-Auto-message/
-     ```
- 
- 3. Install the required packages using pip:  
- 
     ```
-    pip install -r requirements.txt
+    cd /Downloads/Discord-Auto-message/
     ```
- 
- 4. (Optional) In **messages.txt** add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.
 
-    ### (Optional) for 100% uptime host it on uptimerobot.com
+3. (Optional) Customize the message content by editing **messages.txt**, adding messages on separate lines. By default, random messages are provided.
 
-1. sign up at uptimerobot.com
-
-2. Add new monitor and select Http(s)
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image.png?raw=true)
-
-3. Run the program in replit, copy the url
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image1.png?raw=true)
-
-4. Paste the url in the uptimerobot:
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image2.png?raw=true)
-
-5. Save the changes and have fun!
-
-   
- 
 ## Usage
- 
-   The script can be run using the following command:  
 
-    python auto.py
-    
- When running the script, you will be prompted to enter the number of seconds to wait between each message.  
- 
- 
+Execute the script using the following command:
+
+```
+python auto.py
+```
+
+During execution, you'll be prompted to specify the duration in seconds between each message and the sleep interval after each cycle.
+
 ## Options
-   The following options are available:
 
-`--config` : Configures the user information by prompting for **user ID, Discord token, Discord channel URL, and Discord channel ID**:    
+The script offers the following options:
+
+`--config`: Configure user information by providing user ID, Discord token, Discord channel URL, and Discord channel ID:
 
 ```
-  python auto.py --config
+python auto.py --config
 ```
 
- `--setC` : Sets the channel to send messages to by prompting for the Discord channel URL and channel ID.    
- 
- ```
-  python auto.py --setC
- ```
- 
- `--help` : Shows help for the script and its available options.
- 
- ```
-  python auto.py --help
+`--setC`: Set the channel for message delivery by providing the Discord channel URL and channel ID:
+
 ```
- 
+python auto.py --setC
+```
+
+`--help`: Display help information for the script and its available options:
+
+```
+python auto.py --help
+```
+
 ## Contributing
-  If you find a bug or have a feature request, please create an issue on GitHub. Pull requests are also welcome.  
-  **Please do star this project if you like my work.**
 
-
+If you encounter bugs or have feature requests, please create an issue on GitHub. Pull requests are also appreciated. Don't forget to star this project if you find it useful!
