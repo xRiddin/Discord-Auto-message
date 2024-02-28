@@ -1,7 +1,4 @@
-from keep_alive import keep_alive
-import http.client
 import json
-import random
 import sys
 from time import sleep
 from http.client import HTTPSConnection
@@ -23,6 +20,7 @@ def configure_info():
         print(f"Error configuring user information: {e}")
         exit()
 
+
 def set_channel():
     user_id = text[0]
     token = text[1]
@@ -31,6 +29,7 @@ def set_channel():
     with open("info.txt", "w") as file:
         file.write(f"{user_id}\n{token}\n{channel_url}\n{channel_id}")
 
+
 def show_help():
     print("Showing help for discord-auto-messenger")
     print("Usage:")
@@ -38,6 +37,7 @@ def show_help():
     print("  'python3 auto.py --config'      :  Configure settings.")
     print("  'python3 auto.py --setC'  :  Set channel to send message to. Including Channel ID and Channel URL")
     print("  'python3 auto.py --help'        :  Show help")
+
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "--config" and input("Configure? (y/n)") == "y":
@@ -51,7 +51,8 @@ if len(sys.argv) > 1:
         exit()
 
 if len(text) != 4:
-    print("An error inside the user information file. Please ensure the file contains the following information in order: User agent, Discord token, Discord channel URL, and Discord channel ID and try again ->python3 auto.py")
+    print(
+        "An error inside the user information file. Please ensure the file contains the following information in order: User agent, Discord token, Discord channel URL, and Discord channel ID and try again ->python3 auto.py")
     configure_info()
     exit()
 
@@ -65,8 +66,10 @@ header_data = {
 
 print("Messages will be sent to " + header_data["referrer"] + ".")
 
+
 def get_connection():
     return HTTPSConnection("discordapp.com", 443)
+
 
 def send_message(conn, channel_id, message_data):
     try:
@@ -74,23 +77,29 @@ def send_message(conn, channel_id, message_data):
         resp = conn.getresponse()
 
         if 199 < resp.status < 300:
-            print("Message sent!")
+            print(f"Message {message_data} sent!")
     except Exception as e:
-        print(f"Error sending message: {e}")
+        print(f"Error sending message: {e} | {message_data}")
 
-# Read messages from file
-with open("messages.txt", "r") as file:
-    messages = file.read().splitlines()
 
-# Read wait times from user 
-wait_time = int(input("Seconds between messages: "))
-keep_alive()
-# Loop through messages and send them
-for message in messages:
-    message_data = json.dumps({"content": message})
-    conn = get_connection()
-    send_message(conn, text[3], message_data)
-    conn.close()
+# Read wait times from user
+delay_between_messages = int(input("Delay (in seconds) between messages: "))
+sleep_time = int(input("Sleep time (in seconds): "))
 
-    print(f"Waiting {wait_time} seconds...")
-    sleep(wait_time)
+while (1):
+    # Read messages from file
+    with open("messages.txt", "r") as file:
+        messages = file.read().splitlines()
+
+    # Loop through messages and send them
+    for message in messages:
+        message_data = json.dumps({"content": message})
+        conn = get_connection()
+        send_message(conn, text[3], message_data)
+        conn.close()
+
+        print(f"Waiting {delay_between_messages} seconds...")
+        sleep(delay_between_messages)
+
+    print(f"Finished sending all messages, sleeping for {sleep_time}")
+    sleep(sleep_time)
