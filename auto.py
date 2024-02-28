@@ -1,7 +1,8 @@
 import json
 import sys
+import random
+import time
 from datetime import datetime
-from time import sleep
 from http.client import HTTPSConnection
 
 INFO_FILE = "info.txt"
@@ -13,6 +14,13 @@ def get_timestamp():
     Returns a timestamp in the format YYYY-MM-DD HH:MM:SS
     """
     return "[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "]"
+
+
+def random_sleep(duration, min_random, max_random):
+    sleep_duration = duration + random.randint(min_random, max_random)
+    print(f"{get_timestamp} Sleeping for {sleep_duration} seconds")
+
+    time.sleep(sleep_duration)
 
 
 def read_info():
@@ -111,6 +119,7 @@ def main():
 
     print(f"{get_timestamp()} Messages will be sent to " + header_data["referrer"] + ".")
 
+    print("Please initialise your delays and sleep time, there will be some random offsets applied as well!\n")
     delay_between_messages = int(input("Delay (in seconds) between messages: "))
     sleep_time = int(input("Sleep time (in seconds): "))
 
@@ -123,16 +132,15 @@ def main():
             return
 
         for message in messages:
-            print(f"{get_timestamp()} Waiting {delay_between_messages} seconds before sending message")
-            sleep(delay_between_messages)
-
             message_data = json.dumps({"content": message})
             conn = get_connection()
             send_message(conn, info[3], message_data, header_data)
             conn.close()
 
-        print(f"{get_timestamp()} Finished sending all messages, sleeping for {sleep_time} seconds")
-        sleep(sleep_time)
+            random_sleep(delay_between_messages, 1, 10)
+
+        print(f"{get_timestamp()} Finished sending all messages!")
+        random_sleep(sleep_time, 20, 1200)
 
 
 if __name__ == "__main__":
