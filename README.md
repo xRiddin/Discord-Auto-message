@@ -8,7 +8,7 @@ This is a Python script that allows you to send automated messages to a Discord 
  1. Clone the repository or download the code as a zip file and extract it to a folder:  
  
      ```
-     git clone https://github.com/xRiddin/Discord-Auto-message.git
+     git clone https://github.com/ChanJianHao/Discord-Auto-message.git
      ```
      
      If you do not have Git, you may also press the Download button (GitHub) and unzip the code.  
@@ -20,28 +20,7 @@ This is a Python script that allows you to send automated messages to a Discord 
      cd /Downloads/Discord-Auto-message/
      ```
  
- 3. Install the required packages using pip:  
- 
-    ```
-    pip install -r requirements.txt
-    ```
- 
- 4. (Optional) In **messages.txt** add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.
-
-    ### (Optional) for 100% uptime host it on uptimerobot.com
-
-1. sign up at uptimerobot.com
-
-2. Add new monitor and select Http(s)
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image.png?raw=true)
-
-3. Run the program in replit, copy the url
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image1.png?raw=true)
-
-4. Paste the url in the uptimerobot:
-   ![alt text](https://github.com/xRiddin/Discord-Auto-message/blob/main/image2.png?raw=true)
-
-5. Save the changes and have fun!
+ 3. (Optional) In **messages.txt** add the messages you want to send, each on a new line. By default there are lines of text to randomly print the texts.
 
    
  
@@ -51,7 +30,7 @@ This is a Python script that allows you to send automated messages to a Discord 
 
     python auto.py
     
- When running the script, you will be prompted to enter the number of seconds to wait between each message.  
+ When running the script, you will be prompted to enter the number of seconds to wait between each message, and the sleep after each cycles.  
  
  
 ## Options
