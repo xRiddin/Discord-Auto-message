@@ -18,7 +18,7 @@ def get_timestamp():
 
 def random_sleep(duration, min_random, max_random):
     sleep_duration = duration + random.randint(min_random, max_random)
-    print(f"{get_timestamp} Sleeping for {sleep_duration} seconds")
+    print(f"{get_timestamp()} Sleeping for {sleep_duration} seconds")
 
     time.sleep(sleep_duration)
 
