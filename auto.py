@@ -1,5 +1,6 @@
 import json
 import sys
+from datetime import datetime  # Import datetime for timestamp
 from time import sleep
 from http.client import HTTPSConnection
 
@@ -17,8 +18,15 @@ def configure_info():
         with open("info.txt", "w") as file:
             file.write(f"{user_id}\n{token}\n{channel_url}\n{channel_id}")
     except Exception as e:
-        print(f"Error configuring user information: {e}")
+        print(f"{get_timestamp()} Error configuring user information: {e}")
         exit()
+
+
+def get_timestamp():
+    """
+    Returns a timestamp in the format YYYY-MM-DD HH:MM:SS
+    """
+    return "[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "]"
 
 
 def set_channel():
@@ -52,7 +60,8 @@ if len(sys.argv) > 1:
 
 if len(text) != 4:
     print(
-        "An error inside the user information file. Please ensure the file contains the following information in order: User agent, Discord token, Discord channel URL, and Discord channel ID and try again ->python3 auto.py")
+        f"{get_timestamp()} An error was found inside the user information file. Please ensure the file contains the following information in order: User agent, Discord token, Discord channel URL, and Discord channel ID. Try again with python3 auto.py"
+    )
     configure_info()
     exit()
 
@@ -64,7 +73,7 @@ header_data = {
     "referrer": text[2]
 }
 
-print("Messages will be sent to " + header_data["referrer"] + ".")
+print(f"{get_timestamp()} Messages will be sent to " + header_data["referrer"] + ".")
 
 
 def get_connection():
@@ -77,29 +86,30 @@ def send_message(conn, channel_id, message_data):
         resp = conn.getresponse()
 
         if 199 < resp.status < 300:
-            print(f"Message {message_data} sent!")
+            print(f"{get_timestamp()} Message {message_data} sent!")
     except Exception as e:
-        print(f"Error sending message: {e} | {message_data}")
+        print(f"{get_timestamp()} Error sending message: {e} | {message_data}")
 
 
 # Read wait times from user
 delay_between_messages = int(input("Delay (in seconds) between messages: "))
 sleep_time = int(input("Sleep time (in seconds): "))
 
-while (1):
+while True:
     # Read messages from file
     with open("messages.txt", "r") as file:
         messages = file.read().splitlines()
 
     # Loop through messages and send them
     for message in messages:
+        print(f"{get_timestamp()} Waiting {delay_between_messages} seconds before sending message")
+        sleep(delay_between_messages)
+
         message_data = json.dumps({"content": message})
         conn = get_connection()
         send_message(conn, text[3], message_data)
         conn.close()
 
-        print(f"Waiting {delay_between_messages} seconds before sending next message")
-        sleep(delay_between_messages)
 
-    print(f"Finished sending all messages, sleeping for {sleep_time} seconds")
+    print(f"{get_timestamp()} Finished sending all messages, sleeping for {sleep_time} seconds")
     sleep(sleep_time)
